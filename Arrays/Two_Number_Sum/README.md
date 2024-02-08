@@ -18,3 +18,14 @@ To improve the time complexity, we can use a Set or a Hashmap (Dictionary). We i
 
 #### Space Optimization: 
 If we want to optimize for space, we can sort the array first, which takes O(n log n) time. Then, we use two pointers, one at the start of the array and one at the end. We calculate the sum of the numbers at the two pointers. If the sum equals the target, we have found the pair. If the sum is less than the target, we move the left pointer to the right. If the sum is greater than the target, we move the right pointer to the left. We repeat this process until the pointers meet. This approach has a time complexity of O(n log n) due to the sorting, and a space complexity of O(1), as we are not using any additional data structures. This approach is efficient in terms of space, but it requires the array to be sorted first, which may not be desirable in some cases
+
+#### Approach 1: Brute Force
+In this approach, we use two nested loops to check every possible pair of numbers in the array to see if they add up to the target sum.
+1. Initialize an empty list to store the result.
+2. Loop through each element i in the array using the first loop.
+3. Inside the first loop, start another loop from the element next to i to the end of the array.
+4. In the inner loop, check if the sum of the current pair of elements equals the target sum.
+5. If it does, add the indices of these two elements to the result list.
+6. Return the result list if a pair is found, or an empty list if no pair adds up to the target sum.
+
+
