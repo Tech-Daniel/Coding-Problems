@@ -26,7 +26,7 @@ In this approach, we use two nested loops to check every possible pair of number
 2. Loop through each element i in the array using the first loop.
 3. Inside the first loop, start another loop from the element next to i to the end of the array.
 4. In the inner loop, check if the sum of the current pair of elements equals the target sum.
-5. If it does, add the indices of these two elements to the result list.
+5. If it does, add the numbers of these two elements to the result list.
 6. Return the result list if a pair is found, or an empty list if no pair adds up to the target sum.  
 
 ### Approach 2: Hash Table
@@ -35,16 +35,16 @@ This approach uses a hash table to reduce the overall time complexity by avoidin
 2. Loop through each element in the array.
 3. For each element, calculate the complement by subtracting the current element from the target sum.
 4. Check if the complement is already in the dictionary.
-5. If it is, return a list containing the index of the complement from the dictionary and the current index.
-6. If the complement is not found, store the current element and its index in the dictionary.
+5. If it is, return a list containing the number of the complement from the dictionary and the current index.
+6. If the complement is not found, store the current element in the dictionary.
 
 ### Approach 3: Sorting and Two Pointers
 This approach involves sorting the array and using two pointers to find the pair.
 1. Sort the array while keeping track of the original indices.
 2. Initialize two pointers, one at the start (left) and one at the end (right) of the array.
 3. While the left pointer is less than the right pointer:
-  - Calculate the sum of the elements at the left and right pointers.
-  - If the sum is equal to the target, return the original indices of the two numbers.
-  - If the sum is less than the target, move the left pointer to the right to increase the sum.
-  - If the sum is greater than the target, move the right pointer to the left to decrease the sum.
+    - Calculate the sum of the elements at the left and right pointers.
+    - If the sum is equal to the target, return an array with original of the two numbers.
+    - If the sum is less than the target, move the left pointer to the right to increase the sum.
+    - If the sum is greater than the target, move the right pointer to the left to decrease the sum.
 4. If no pair is found, return an empty list.
