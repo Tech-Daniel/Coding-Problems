@@ -116,6 +116,18 @@ class TestTwoNumSum(unittest.TestCase):
         self.assertIn(-1, result, "The number -1 should be in the result.")
         self.test_passed = True
 
+    # NEGATIVE numbers test
+    def test_case_3(self):
+        self.array = [-4, -8, -11,  -1, -6]
+        self.target_sum = -15
+        result = two_num_sum_brute_force(self.array, self.target_sum)
+        self.assertEqual(len(result), 2)
+        self.assertEqual(sum(result), self.target_sum)
+        self.assertTrue(-11 in result)
+        self.assertTrue(-4 in result)
+        self.test_passed = True
+
+
     def tearDown(self):
         """
         Clean up after each test.
@@ -127,12 +139,13 @@ class TestTwoNumSum(unittest.TestCase):
         else:
             logger.error("❌ Test Failed: Two numbers did not sum to target as expected.")
 
+
 class SuppressingTestResult(unittest.TextTestResult):
     def addFailure(self, test, err):
         pass  # Suppress the default failure message
-
+        
     def addError(self, test, err):
-        pass  # Suppress the default error message
+        pass  # Suppress the default error message 
 
 class SuppressingTestRunner(unittest.TextTestRunner):
     def _makeResult(self):
@@ -141,6 +154,6 @@ class SuppressingTestRunner(unittest.TextTestRunner):
 if __name__ == '__main__':
     unittest.main(testRunner=SuppressingTestRunner())
 
-
-''' if __name__ == '__main__':
+'''
+if __name__ == '__main__':
     unittest.main() '''
