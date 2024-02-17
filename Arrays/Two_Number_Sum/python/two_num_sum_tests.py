@@ -96,7 +96,7 @@ class TestTwoNumSum(unittest.TestCase):
         
         Initializes the input array and the target sum for the test case.
         """
-        self.array = [3, 5, -4, 8, 11, 1, 6]
+        self.array = [3, 5, -4, 8, 11, -1, 6]
         self.target_sum = 10
         self.test_passed = False
 
@@ -117,7 +117,7 @@ class TestTwoNumSum(unittest.TestCase):
         self.test_passed = True
 
     # NEGATIVE numbers test
-    def test_case_3(self):
+    def test_case_2(self):
         self.array = [-4, -8, -11,  -1, -6]
         self.target_sum = -15
         result = two_num_sum_brute_force(self.array, self.target_sum)
@@ -127,6 +127,15 @@ class TestTwoNumSum(unittest.TestCase):
         self.assertTrue(-4 in result)
         self.test_passed = True
 
+    # POSITIVE number with TWO answer test
+    def test_case_3(self):
+        self.array = [3, 5, 8, 11, 0, 6]
+        self.target_sum = 11
+        result = two_num_sum_brute_force(self.array, self.target_sum)
+        self.assertEqual(len(result), 2)
+        self.assertEqual(sum(result), self.target_sum)
+        self.assertTrue(([0, 11] or [11, 0]) or ([5, 6] or [6, 5]) == result)
+        self.test_passed = True
 
     def tearDown(self):
         """
