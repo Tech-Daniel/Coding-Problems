@@ -100,7 +100,7 @@ class TestTwoNumSum(unittest.TestCase):
         self.target_sum = 10
         self.test_passed = False
 
-    def test_two_num_sum_with_positive_and_negative_numbers(self):
+    def test_with_positive_and_negative_numbers(self):
         """
         Test the two_num_sum_brute_force function with a mix of positive and negative numbers.
         
@@ -109,56 +109,76 @@ class TestTwoNumSum(unittest.TestCase):
         result and validates the length of the result.
         """
         result = two_num_sum_brute_force(self.array, self.target_sum)
+
+        self.expected = (2, self.target_sum)  # Expected length and sum
+        self.actual = (len(result), sum(result))  # Actual length and sum
         
-        self.assertEqual(len(result), 2, "Result should contain exactly two numbers.")
-        self.assertEqual(sum(result), self.target_sum, "The two numbers should add up to the target sum.")
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
         self.assertIn(11, result, "The number 11 should be in the result.")
         self.assertIn(-1, result, "The number -1 should be in the result.")
         self.test_passed = True
 
-    # NEGATIVE numbers test
-    def test_case_2(self):
-        self.array = [-4, -8, -11,  -1, -6]
+    def test_with_all_negative_numbers(self):
+        """
+        Test the two_num_sum_brute_force function with all negative numbers.
+        """
+        self.array = [-4, -8, -11, -1, -6]
         self.target_sum = -15
         result = two_num_sum_brute_force(self.array, self.target_sum)
-        self.assertEqual(len(result), 2)
-        self.assertEqual(sum(result), self.target_sum)
-        self.assertTrue(-11 in result)
-        self.assertTrue(-4 in result)
+
+        self.expected = (2, self.target_sum)  # Expected length and sum
+        self.actual = (len(result), sum(result))  # Actual length and sum
+        
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertCountEqual(result, [-11, -4], "Result should contain -11 and -4.")
         self.test_passed = True
 
-    # POSITIVE number with TWO answer test
-    def test_case_3(self):
+    def test_with_positive_numbers_and_multiple_answers(self):
+        """
+        Test the two_num_sum_brute_force function with positive numbers and multiple correct answers.
+        """
         self.array = [3, 5, 8, 11, 0, 6]
         self.target_sum = 11
         result = two_num_sum_brute_force(self.array, self.target_sum)
-        self.assertEqual(len(result), 2)
-        self.assertEqual(sum(result), self.target_sum)
-        self.assertTrue(([0, 11] or [11, 0]) or ([5, 6] or [6, 5]) == result)
+
+        self.expected = (2, self.target_sum)  # Expected length and sum
+        self.actual = (len(result), sum(result))  # Actual length and sum
+        
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertIn(result, ([0, 11], [11, 0], [5, 6], [6, 5], [3, 8], [8, 3]), "Result should be one of the valid number pairs.")
         self.test_passed = True
 
-    # DESCENDING numbers test
-    def test_case_4(self):
+    def test_with_descending_numbers(self):
+        """
+        Test the two_num_sum_brute_force function with descending numbers.
+        """
         self.array = [9, 8, 7, 6, 5, 4, 3, 0, -3, -5]
         self.target_sum = 0
         result = two_num_sum_brute_force(self.array, self.target_sum)
-        self.assertEqual(len(result), 2)
-        self.assertEqual(sum(result), self.target_sum)
-        self.assertTrue(-5 in result)
-        self.assertTrue(5 in result)
+
+        self.expected = (2, self.target_sum)  # Expected length and sum
+        self.actual = (len(result), sum(result))  # Actual length and sum
+        
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertIn(result, ([5, -5], [-5, 5], [3, -3], [-3, 3]), "Result should be one of the valid number pairs.")
 
     def tearDown(self):
         """
         Clean up after each test.
         
-        Displays a custom message indicating whether the test passed or failed.
+        Logs a message indicating whether the test passed or failed, including the test method name.
+        If the test failed, logs the expected and actual output.
         """
+        test_method_name = self.id().split('.')[-2:]
+        class_name, method_name = test_method_name
+        full_test_name = f"{class_name}.{method_name}"
+        
         if self.test_passed:
-            logger.info("✅ Test Passed: Two numbers sum to target successfully.")
+            logger.info(f"✅ Test Passed: {full_test_name}")
         else:
-            logger.error("❌ Test Failed: Two numbers did not sum to target as expected.")
+            logger.error(f"❌ Test Failed: {full_test_name} - Expected: {self.expected}, Actual: {self.actual}")
 
-
+'''
 class SuppressingTestResult(unittest.TextTestResult):
     def addFailure(self, test, err):
         pass  # Suppress the default failure message
@@ -175,4 +195,4 @@ if __name__ == '__main__':
 
 '''
 if __name__ == '__main__':
-    unittest.main() '''
+    unittest.main() 
