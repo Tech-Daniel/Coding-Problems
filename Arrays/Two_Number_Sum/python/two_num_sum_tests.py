@@ -161,6 +161,23 @@ class TestTwoNumSum(unittest.TestCase):
         
         self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
         self.assertIn(result, ([5, -5], [-5, 5], [3, -3], [-3, 3]), "Result should be one of the valid number pairs.")
+        self.test_passed = True
+
+    def test_with_ascending_number(self):
+        """
+        Test the two_num_sum with ascending numbers.
+        """
+        self.array = [-6, -3, -1, 0, 3, 7, 9]
+        self.target_sum = 10
+        result = two_num_sum_brute_force(self.array, self.target_sum)
+        
+        self.expected = (2, self.target_sum)  # Expected length and sum
+        self.actual = (len(result), sum(result))  # Actual length and sum
+        
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertCountEqual(result, [3, 7], "Result should contain 3 and 7.")
+        self.test_passed = True
+
 
     def tearDown(self):
         """
