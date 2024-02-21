@@ -178,6 +178,21 @@ class TestTwoNumSum(unittest.TestCase):
         self.assertCountEqual(result, [3, 7], "Result should contain 3 and 7.")
         self.test_passed = True
 
+    # NON_EXISTING sum test
+    def test_without_existing_sum(self):
+        """
+        Test the two_num_sum without existing sum.
+        """
+        self.array = [3, 5, -4, 8, 11, 1, -1, 6]
+        self.target_sum = 30
+        result = two_num_sum_brute_force(self.array, self.target_sum)
+        
+        self.expected = ([])  # Expected empty array
+        self.actual = (result)  # Actual length and sum
+        
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.test_passed = True
+
 
     def tearDown(self):
         """
