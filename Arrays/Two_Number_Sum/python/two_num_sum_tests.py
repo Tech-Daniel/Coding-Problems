@@ -178,6 +178,8 @@ class TestTwoNumSum(unittest.TestCase):
         self.assertCountEqual(result, [3, 7], "Result should contain 3 and 7.")
         self.test_passed = True
 
+    
+    ## EDGE CASES TEST
     # NON_EXISTING sum test
     def test_without_existing_sum(self):
         """
@@ -191,6 +193,22 @@ class TestTwoNumSum(unittest.TestCase):
         self.actual = (result)  # Actual length and sum
         
         self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.test_passed = True
+
+    # Large numbers test
+    def test_with_large_numbers(self):
+        """
+        Test the two_num_sum with large numbers.
+        """
+        self.array = [2147483647, -2147483648]
+        self.target_sum = -1
+        result = two_num_sum_brute_force(self.array, self.target_sum)
+        
+        self.expected = (2, self.target_sum)  # Expected length and sum
+        self.actual = (len(result), sum(result))  # Actual length and sum
+        
+        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertCountEqual(result, [2147483647, -2147483648], "Result should contain 2147483647 and -2147483648.")
         self.test_passed = True
 
 
