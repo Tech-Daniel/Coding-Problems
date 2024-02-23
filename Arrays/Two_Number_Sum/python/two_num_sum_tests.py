@@ -100,6 +100,9 @@ class TestTwoNumSum(unittest.TestCase):
         self.target_sum = 10
         self.test_passed = False
 
+
+    """ POSITIVE/NORMAL TEST CASES """
+
     def test_with_positive_and_negative_numbers(self):
         """
         Test the two_num_sum_brute_force function with a mix of positive and negative numbers.
@@ -108,14 +111,20 @@ class TestTwoNumSum(unittest.TestCase):
         that add up to the target sum. It checks for the presence of the expected numbers in the
         result and validates the length of the result.
         """
-        result = two_num_sum_brute_force(self.array, self.target_sum)
+        result1 = two_num_sum_brute_force(self.array, self.target_sum)
+        result2 = two_num_sum_sets(self.array, self.target_sum)
 
         self.expected = (2, self.target_sum)  # Expected length and sum
-        self.actual = (len(result), sum(result))  # Actual length and sum
+        self.actual1 = (len(result1), sum(result1))  # Actual length and sum
+        self.actual2 = (len(result2), sum(result2))  # Actual length and sum
+
         
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.assertIn(11, result, "The number 11 should be in the result.")
-        self.assertIn(-1, result, "The number -1 should be in the result.")
+        self.assertEqual(self.actual1, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertIn(11, result1, "The number 11 should be in the result.")
+        self.assertIn(-1, result1, "The number -1 should be in the result.")
+        self.assertEqual(self.actual2, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+        self.assertIn(11, result2, "The number 11 should be in the result.")
+        self.assertIn(-1, result2, "The number -1 should be in the result.")
         self.test_passed = True
 
     def test_with_all_negative_numbers(self):
@@ -179,8 +188,8 @@ class TestTwoNumSum(unittest.TestCase):
         self.test_passed = True
 
     
-    ## EDGE CASES TEST
-    # NON_EXISTING sum test
+    """ EDGE CASES TEST """
+
     def test_without_existing_sum(self):
         """
         Test the two_num_sum without existing sum.
@@ -195,7 +204,6 @@ class TestTwoNumSum(unittest.TestCase):
         self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
         self.test_passed = True
 
-    # Large numbers test
     def test_with_large_numbers(self):
         """
         Test the two_num_sum with large numbers.
