@@ -29,7 +29,9 @@ class TestTwoNumSum(unittest.TestCase):
         that add up to the target sum. It checks for the presence of the expected numbers in the
         result and validates the length of the result.
         """
-        for two_num_sum_func in [two_num_sum_brute_force, two_num_sum_sets, two_num_sum_two_pointers]:
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
                 result = two_num_sum_func(self.array, self.target_sum)
 
@@ -47,14 +49,19 @@ class TestTwoNumSum(unittest.TestCase):
         """
         self.array = [-4, -8, -11, -1, -6]
         self.target_sum = -15
-        result = two_num_sum_brute_force(self.array, self.target_sum)
-
-        self.expected = (2, self.target_sum)  # Expected length and sum
-        self.actual = (len(result), sum(result))  # Actual length and sum
         
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.assertCountEqual(result, [-11, -4], "Result should contain -11 and -4.")
-        self.test_passed = True
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
+        
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertCountEqual(result, [-11, -4], "Result should contain -11 and -4.")
+                self.test_passed = True
 
     def test_with_positive_numbers_and_multiple_answers(self):
         """
@@ -62,14 +69,19 @@ class TestTwoNumSum(unittest.TestCase):
         """
         self.array = [3, 5, 8, 11, 0, 6]
         self.target_sum = 11
-        result = two_num_sum_brute_force(self.array, self.target_sum)
-
-        self.expected = (2, self.target_sum)  # Expected length and sum
-        self.actual = (len(result), sum(result))  # Actual length and sum
         
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.assertIn(result, ([0, 11], [11, 0], [5, 6], [6, 5], [3, 8], [8, 3]), "Result should be one of the valid number pairs.")
-        self.test_passed = True
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
+
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertIn(result, ([0, 11], [11, 0], [5, 6], [6, 5], [3, 8], [8, 3]), "Result should be one of the valid number pairs.")
+                self.test_passed = True
 
     def test_with_descending_numbers(self):
         """
@@ -77,14 +89,19 @@ class TestTwoNumSum(unittest.TestCase):
         """
         self.array = [9, 8, 7, 6, 5, 4, 3, 0, -3, -5]
         self.target_sum = 0
-        result = two_num_sum_brute_force(self.array, self.target_sum)
-
-        self.expected = (2, self.target_sum)  # Expected length and sum
-        self.actual = (len(result), sum(result))  # Actual length and sum
         
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.assertIn(result, ([5, -5], [-5, 5], [3, -3], [-3, 3]), "Result should be one of the valid number pairs.")
-        self.test_passed = True
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
+
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertIn(result, ([5, -5], [-5, 5], [3, -3], [-3, 3]), "Result should be one of the valid number pairs.")
+                self.test_passed = True
 
     def test_with_ascending_number(self):
         """
@@ -92,14 +109,19 @@ class TestTwoNumSum(unittest.TestCase):
         """
         self.array = [-6, -3, -1, 0, 3, 7, 9]
         self.target_sum = 10
-        result = two_num_sum_brute_force(self.array, self.target_sum)
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
         
-        self.expected = (2, self.target_sum)  # Expected length and sum
-        self.actual = (len(result), sum(result))  # Actual length and sum
-        
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.assertCountEqual(result, [3, 7], "Result should contain 3 and 7.")
-        self.test_passed = True
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertCountEqual(result, [3, 7], "Result should contain 3 and 7.")
+                self.test_passed = True
 
     
     """ EDGE CASES TEST """
@@ -110,13 +132,18 @@ class TestTwoNumSum(unittest.TestCase):
         """
         self.array = [3, 5, -4, 8, 11, 1, -1, 6]
         self.target_sum = 30
-        result = two_num_sum_brute_force(self.array, self.target_sum)
         
-        self.expected = ([])  # Expected empty array
-        self.actual = (result)  # Actual length and sum
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
         
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.test_passed = True
+                self.expected = ([])  # Expected empty array
+                self.actual = (result)  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.test_passed = True
 
     def test_with_large_numbers(self):
         """
@@ -124,14 +151,19 @@ class TestTwoNumSum(unittest.TestCase):
         """
         self.array = [2147483647, -2147483648]
         self.target_sum = -1
-        result = two_num_sum_brute_force(self.array, self.target_sum)
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
         
-        self.expected = (2, self.target_sum)  # Expected length and sum
-        self.actual = (len(result), sum(result))  # Actual length and sum
-        
-        self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
-        self.assertCountEqual(result, [2147483647, -2147483648], "Result should contain 2147483647 and -2147483648.")
-        self.test_passed = True
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertCountEqual(result, [2147483647, -2147483648], "Result should contain 2147483647 and -2147483648.")
+                self.test_passed = True
 
 
     def tearDown(self):
