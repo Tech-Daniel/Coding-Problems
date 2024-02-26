@@ -123,6 +123,26 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertCountEqual(result, [3, 7], "Result should contain 3 and 7.")
                 self.test_passed = True
 
+    def test_with_negative_sum(self):
+        """
+        Test the two_num_sum with negative sum.
+        """
+        self.array = [-1, -2, -3, -4, -5]
+        self.target_sum = -9
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
+        
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertCountEqual(result, [-4, -5], "Result should contain -4 and -5.")
+                self.test_passed = True
+
     
     """ EDGE CASES TEST """
 
@@ -164,6 +184,8 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
                 self.assertCountEqual(result, [2147483647, -2147483648], "Result should contain 2147483647 and -2147483648.")
                 self.test_passed = True
+
+    
 
 
     def tearDown(self):
