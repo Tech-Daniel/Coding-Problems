@@ -15,20 +15,17 @@ class TestTwoNumSum(unittest.TestCase):
         
         Initializes the input array and the target sum for the test case.
         """
-        self.array = [3, 5, -4, 8, 11, -1, 6]
-        self.target_sum = 10
+        self.array = None
+        self.target_sum = None
         self.test_passed = False
 
     """ POSITIVE/NORMAL TEST CASES """
 
-    def test_with_positive_and_negative_numbers(self):
-        """
-        Test the two_num_sum_brute_force function with a mix of positive and negative numbers.
+    def test_two_num_sum_with_mixed_numbers(self):
+        """Test functions with a mix of positive & negative numbers."""
+        self.array = [3, 5, -4, 8, 11, -1, 6]
+        self.target_sum = 10
         
-        This test verifies that the function correctly identifies two numbers in the given array
-        that add up to the target sum. It checks for the presence of the expected numbers in the
-        result and validates the length of the result.
-        """
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
