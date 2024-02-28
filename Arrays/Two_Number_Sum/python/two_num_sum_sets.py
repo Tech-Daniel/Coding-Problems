@@ -9,6 +9,12 @@ def two_num_sum_sets(array, target_sum):
 			nums.add(potential_match)
 	return [] '''
 
+	if len(array) < 2:
+		return []
+	
+	if len(array) != len(set(array)):
+		raise ValueError("There is a repeated element in the given array!")
+
 	dict = {}
 
 	for num in array:

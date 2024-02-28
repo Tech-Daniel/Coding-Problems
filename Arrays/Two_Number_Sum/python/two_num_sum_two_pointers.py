@@ -1,4 +1,10 @@
 def two_num_sum_two_pointers(array, target_sum):
+    if len(array) < 2:
+    	return []
+        
+    if len(array) != len(set(array)):
+        raise ValueError("There is a repeated element in the given array!")
+    
     array.sort()
     left, right = 0, len(array) - 1
 
