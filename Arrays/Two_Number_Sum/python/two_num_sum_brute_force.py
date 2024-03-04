@@ -10,6 +10,7 @@ def two_num_sum_brute_force(numbers, target_sum):
         list: A list containing the two numbers that add up to the target_sum,
               or an empty list if no such numbers exist.
     """
+    
     validate_input(numbers, target_sum)
 
     for i in range(len(numbers) - 1):
@@ -17,6 +18,7 @@ def two_num_sum_brute_force(numbers, target_sum):
             if numbers[i] + numbers[j] == target_sum:
                 return [numbers[i], numbers[j]]
     return []
+
 
 def validate_input(numbers, target_sum):
     """
