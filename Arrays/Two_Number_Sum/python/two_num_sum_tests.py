@@ -182,6 +182,26 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertCountEqual(result, [2147483647, -2147483648], "Result should contain 2147483647 and -2147483648.")
                 self.test_passed = True
 
+
+    """ NEGATIVE/INPUT VALIDATION CASE TESTS """
+
+    def test_input_integer_type(self):
+        """
+        Test the two_num_sum with integer type from `numbers` argument.
+        """
+        self.array = 100
+        self.target_sum = -1
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.array, self.target_sum)
+        
+                
+                
+                self.test_passed = True
+
     
 
 
@@ -217,5 +237,6 @@ if __name__ == '__main__':
     unittest.main(testRunner=SuppressingTestRunner())
 
 '''
+
 if __name__ == '__main__':
     unittest.main() 
