@@ -15,7 +15,7 @@ class TestTwoNumSum(unittest.TestCase):
         
         Initializes the input array and the target sum for the test case.
         """
-        self.array = None
+        self.numbers = None
         self.target_sum = None
         self.test_passed = False
 
@@ -23,14 +23,14 @@ class TestTwoNumSum(unittest.TestCase):
 
     def test_two_num_sum_with_mixed_numbers(self):
         """Test functions with a mix of positive & negative numbers."""
-        self.array = [3, 5, -4, 8, 11, -1, 6]
+        self.numbers = [3, 5, -4, 8, 11, -1, 6]
         self.target_sum = 10
         
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
 
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -44,14 +44,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum_brute_force function with all negative numbers.
         """
-        self.array = [-4, -8, -11, -1, -6]
+        self.numbers = [-4, -8, -11, -1, -6]
         self.target_sum = -15
         
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
         
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -64,14 +64,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum_brute_force function with positive numbers and multiple correct answers.
         """
-        self.array = [3, 5, 8, 11, 0, 6]
+        self.numbers = [3, 5, 8, 11, 0, 6]
         self.target_sum = 11
         
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
 
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -84,14 +84,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum_brute_force function with descending numbers.
         """
-        self.array = [9, 8, 7, 6, 5, 4, 3, 0, -3, -5]
+        self.numbers = [9, 8, 7, 6, 5, 4, 3, 0, -3, -5]
         self.target_sum = 0
         
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
 
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -104,14 +104,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum with ascending numbers.
         """
-        self.array = [-6, -3, -1, 0, 3, 7, 9]
+        self.numbers = [-6, -3, -1, 0, 3, 7, 9]
         self.target_sum = 10
 
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
         
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -124,14 +124,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum with negative sum.
         """
-        self.array = [-1, -2, -3, -4, -5]
+        self.numbers = [-1, -2, -3, -4, -5]
         self.target_sum = -9
 
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
         
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -147,14 +147,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum without existing sum.
         """
-        self.array = [3, 5, -4, 8, 11, 1, -1, 6]
+        self.numbers = [3, 5, -4, 8, 11, 1, -1, 6]
         self.target_sum = 30
         
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
         
                 self.expected = ([])  # Expected empty array
                 self.actual = (result)  # Actual length and sum
@@ -166,14 +166,14 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum with large numbers.
         """
-        self.array = [2147483647, -2147483648]
+        self.numbers = [2147483647, -2147483648]
         self.target_sum = -1
 
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
+                result = two_num_sum_func(self.numbers, self.target_sum)
         
                 self.expected = (2, self.target_sum)  # Expected length and sum
                 self.actual = (len(result), sum(result))  # Actual length and sum
@@ -189,17 +189,20 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Test the two_num_sum with integer type from `numbers` argument.
         """
-        self.array = 100
+        self.numbers = 100
         self.target_sum = -1
 
         for two_num_sum_func in [two_num_sum_brute_force, 
                                  two_num_sum_sets, 
                                  two_num_sum_two_pointers]:
             with self.subTest(two_num_sum_func=two_num_sum_func):
-                result = two_num_sum_func(self.array, self.target_sum)
-        
+                with self.assertRaises(TypeError) as handler:
+                    two_num_sum_func(self.numbers, self.target_sum)
                 
+                self.expected = f"Expected a list, got {type(self.numbers)}"
+                self.actual = str(handler.exception)
                 
+                self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
 
     
