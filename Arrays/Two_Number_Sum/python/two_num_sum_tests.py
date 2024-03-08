@@ -205,6 +205,25 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
 
+    def test_input_null_type(self):
+        """
+        Test the two_num_sum with integer type from `numbers` argument.
+        """
+        self.numbers = None
+        self.target_sum = 14
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                with self.assertRaises(TypeError) as handler:
+                    two_num_sum_func(self.numbers, self.target_sum)
+                
+                self.expected = f"Expected a list, got {type(self.numbers)}"
+                self.actual = str(handler.exception)
+                
+                self.assertEqual(self.actual, self.expected)
+                self.test_passed = True
     
 
 
