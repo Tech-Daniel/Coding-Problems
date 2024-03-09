@@ -185,7 +185,7 @@ class TestTwoNumSum(unittest.TestCase):
 
     """ NEGATIVE/INPUT VALIDATION CASE TESTS """
 
-    def test_input_integer_type(self):
+    def test_with_input_integer_type_for_numbers_arg(self):
         """
         Test the two_num_sum with integer type from `numbers` argument.
         """
@@ -205,9 +205,9 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
 
-    def test_input_null_type(self):
+    def test_with_input_null_type_for_numbers_arg(self):
         """
-        Test the two_num_sum with integer type from `numbers` argument.
+        Test the two_num_sum with null type from `numbers` argument.
         """
         self.numbers = None
         self.target_sum = 14
@@ -225,6 +225,26 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
     
+    def test_with_input_null_type_for_elements_inside_numbers_arg(self):
+        """
+        Test the two_num_sum with null type for element in `numbers` argument.
+        """
+        self.numbers = [-1, -5, 0, None, 15]
+        self.target_sum = 14
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                with self.assertRaises(TypeError) as handler:
+                    two_num_sum_func(self.numbers, self.target_sum)
+                
+                self.expected = "All elements in `numbers` must be integers"
+                self.actual = str(handler.exception)
+                
+                self.assertEqual(self.actual, self.expected)
+                self.test_passed = True
+
 
 
     def tearDown(self):
