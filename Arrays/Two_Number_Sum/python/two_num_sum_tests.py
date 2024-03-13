@@ -205,6 +205,26 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
 
+    def test_with_input_float_type_for_numbers_arg(self):
+        """
+        Test the two_num_sum with float type from `numbers` argument.
+        """
+        self.numbers = 1.25
+        self.target_sum = -1
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                with self.assertRaises(TypeError) as handler:
+                    two_num_sum_func(self.numbers, self.target_sum)
+                
+                self.expected = f"Expected a list, got {type(self.numbers)}"
+                self.actual = str(handler.exception)
+                
+                self.assertEqual(self.actual, self.expected)
+                self.test_passed = True
+
     def test_with_input_string_type_for_numbers_arg(self):
         """
         Test the two_num_sum with string type from `numbers` argument. 
@@ -268,7 +288,7 @@ class TestTwoNumSum(unittest.TestCase):
 
     def test_with_input_float_type_for_elements_inside_numbers_arg(self):
         """
-        Test the two_num_sum with null type for element in `numbers` argument.
+        Test the two_num_sum with float type for element in `numbers` argument.
         """
         self.numbers = [-1, -5, 0, 10.2, 15]
         self.target_sum = 14
@@ -288,7 +308,7 @@ class TestTwoNumSum(unittest.TestCase):
 
     def test_with_input_string_type_for_elements_inside_numbers_arg(self):
         """
-        Test the two_num_sum with null type for element in `numbers` argument.
+        Test the two_num_sum with string type for element in `numbers` argument.
         """
         self.numbers = [-1, -5, 0, "10", 15]
         self.target_sum = 14
