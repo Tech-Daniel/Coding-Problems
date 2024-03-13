@@ -326,6 +326,25 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
 
+    def test_with_input_float_type_for_target_sum_arg(self):
+        """
+        Test the two_num_sum with float type from `target_sum` argument.
+        """
+        self.numbers = [1, 2, 4, -1, -5, 0]
+        self.target_sum = -1.8
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                with self.assertRaises(TypeError) as handler:
+                    two_num_sum_func(self.numbers, self.target_sum)
+                
+                self.expected = f"Expected an int for `target_sum`, got {type(self.target_sum)}"
+                self.actual = str(handler.exception)
+                
+                self.assertEqual(self.actual, self.expected)
+                self.test_passed = True
 
     def tearDown(self):
         """
