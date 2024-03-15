@@ -266,6 +266,26 @@ class TestTwoNumSum(unittest.TestCase):
                 self.assertEqual(self.actual, self.expected)
                 self.test_passed = True
     
+    def test_with_one_number_in_numbers_arg(self):
+        """
+        Test the two_num_sum with one number from `numbers` argument.
+        """
+        self.numbers = [100]
+        self.target_sum = 100
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                with self.assertRaises(ValueError) as handler:
+                    two_num_sum_func(self.numbers, self.target_sum)
+                
+                self.expected = "At least two numbers required in `numbers`"
+                self.actual = str(handler.exception)
+                
+                self.assertEqual(self.actual, self.expected)
+                self.test_passed = True
+
     def test_with_input_null_type_for_elements_inside_numbers_arg(self):
         """
         Test the two_num_sum with null type for element in `numbers` argument.
