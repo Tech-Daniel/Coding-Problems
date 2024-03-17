@@ -143,6 +143,26 @@ class TestTwoNumSum(unittest.TestCase):
     
     """ EDGE CASES TEST """
 
+    def test_with_only_two_numbers(self):
+        """
+        Test the two_num_sum with large numbers.
+        """
+        self.numbers = [0, -1]
+        self.target_sum = -1
+
+        for two_num_sum_func in [two_num_sum_brute_force, 
+                                 two_num_sum_sets, 
+                                 two_num_sum_two_pointers]:
+            with self.subTest(two_num_sum_func=two_num_sum_func):
+                result = two_num_sum_func(self.numbers, self.target_sum)
+        
+                self.expected = (2, self.target_sum)  # Expected length and sum
+                self.actual = (len(result), sum(result))  # Actual length and sum
+                
+                self.assertEqual(self.actual, self.expected, "The two numbers should add up to the target sum and result should contain exactly two numbers.")
+                self.assertCountEqual(result, [0, -1], "Result should contain 2147483647 and -2147483648.")
+                self.test_passed = True
+    
     def test_without_existing_sum(self):
         """
         Test the two_num_sum without existing sum.
