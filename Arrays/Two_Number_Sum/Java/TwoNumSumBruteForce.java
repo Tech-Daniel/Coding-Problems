@@ -6,7 +6,7 @@ class twoNumSumBruteForce {
     int targetSum = 2;
 
     twoNumSum(numbers, targetSum);
-  }
+  };
   
   public static int[] twoNumSum(int[] numbers, int targetSum) {
     for (int i = 0; i < numbers.length - 1; i++) {
@@ -24,5 +24,5 @@ class twoNumSumBruteForce {
     }
     // System.out.println(new int[0]);
     return new int[0];
-  }
+  };
 };
