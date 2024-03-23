@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class twoNumSumSets {
+public class TwoNumSumSets {
   public static void main(String[] args) {
     int[] numbers = new int[] {1, 2, 4, 5, -5, -2};
     int targetSum = 2;

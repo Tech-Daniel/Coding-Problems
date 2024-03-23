@@ -1,14 +1,14 @@
 import java.util.*;
-import twoNumSumBruteForce;
-import twoNumSumSets.twoNumSum;
-import twoNumSumTwoPointers.twoNumSum;
+TwoNumSumBruteForce bruteForceSolution = new TwoNumSumBruteForce();
+TwoNumSumSets setsSolution = new TwoNumSumSets();
+TwoNumSumTwoPointers twoPointersSolution = new TwoNumSumTwoPointers();
 
-class twoNumSumTests {
+class TwoNumSumTests {
   @Test
-  public void TestCase1() {
+  public static void TestCase1() {
     int[] numbers = new int[] {3, 5, -4, 8, 11, -1};
     int targetSum = 10;
-    int[] output = twoNumSumBruteForce(numbers, targetSum);
+    int[] output = bruteForceSolution.twoNumSum(numbers, targetSum);
 
     Utils.assertTrue(output.length == 2);
     Utils.assertCountEqual(output, new int[] {11, -1}, "Result should contain 11 and -1.");

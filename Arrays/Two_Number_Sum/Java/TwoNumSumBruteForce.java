@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class twoNumSumBruteForce {
+public class TwoNumSumBruteForce {
   public static void main(String[] args) {
     int [] numbers = new int[] {1, 2, 4, 5, -5, -2};
     int targetSum = 2;
@@ -16,9 +16,9 @@ public class twoNumSumBruteForce {
         
         if (firstNum + secondNum == targetSum) {
           int[] result = new int[] {firstNum, secondNum};
-          System.out.println(Arrays.toString(result));
-          System.out.println("You got the answer!");
-          return new int[] {firstNum, secondNum};
+          // System.out.println(Arrays.toString(result));
+          //System.out.println("You got the answer!");
+          return result;
         }
       }
     }
