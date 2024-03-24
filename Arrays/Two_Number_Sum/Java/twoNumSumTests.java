@@ -3,9 +3,12 @@ TwoNumSumBruteForce bruteForceSolution = new TwoNumSumBruteForce();
 TwoNumSumSets setsSolution = new TwoNumSumSets();
 TwoNumSumTwoPointers twoPointersSolution = new TwoNumSumTwoPointers();
 
-class TwoNumSumTests {
+public class TwoNumSumTests {
   @Test
   public static void TestCase1() {
+    TwoNumSumBruteForce bruteForceSolution = new TwoNumSumBruteForce();
+    TwoNumSumSets setsSolution = new TwoNumSumSets();
+    TwoNumSumTwoPointers twoPointersSolution = new TwoNumSumTwoPointers();
     int[] numbers = new int[] {3, 5, -4, 8, 11, -1};
     int targetSum = 10;
     int[] output = bruteForceSolution.twoNumSum(numbers, targetSum);
