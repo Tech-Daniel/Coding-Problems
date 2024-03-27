@@ -14,10 +14,11 @@ function twoNumSumBruteForce(numbers, targetSum) {
   };
   return [];
 }
+
 let numbers = [1, 2, 4, 5, -5, -2];
 let targetSum = 2;
 
 twoNumSumBruteForce(numbers, targetSum);
 
 
-// exports.twoNumSumBruteForce = twoNumSumBruteForce;
+exports.twoNumSumBruteForce = twoNumSumBruteForce;
