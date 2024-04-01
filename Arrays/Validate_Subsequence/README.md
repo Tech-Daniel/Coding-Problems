@@ -11,19 +11,28 @@ A subsequence of an array is a set of numbers that aren't necessarily adjacent i
 2nd argument: an Array of Integers `sequence`
 * NON-EMPTY array
 * RANDOM orders && CANNOT change the orders
+* REPEATABLE Integers
 * NEGATIVE & POSITIVE Integers
 
 ### OUTPUT:
 Return a Boolean; TRUE if `sequence` is an in-ordered subset of `array`; otherwise, FALSE.
 * FALSE if it's an empty `array`
 
-### Example:
+### EXAMPLE:
 input1:
-array1 = [5, 1, 22, 25, 6, -1, 8, 10]
+array1 = [5, 1, 25, 6, -1, 10]
 sequence1 = [1, 6, -1, 10]
 
 output1:
 isValidSubsequence(array1, sequence1)
 true
+
+### CLARIFICAIONS:
+- What are the constraints?
+~   1 <= `array`.length <= 10^4
+~   1 <= `sequence`.length <= 10^4
+~   -10,000 <= `array[i]` <= 10,000
+~   -10,000 <= `sequence`.length <= 10,000
+
 
 
