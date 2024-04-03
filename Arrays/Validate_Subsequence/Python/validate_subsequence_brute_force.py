@@ -2,6 +2,8 @@ def validate_subsequence(numbers, sequence):
 	subset_remainder = len(numbers)
 	numbers_check = 0
 	sequence_check = 0
+	# print(f"The subsequence is {subset_remainder == 0}!")
+	# print("You got the answer!")
 
 	while 0 < subset_remainder and numbers_check < len(numbers):
 		num = numbers[numbers_check]
