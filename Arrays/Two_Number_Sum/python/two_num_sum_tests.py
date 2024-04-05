@@ -13,7 +13,7 @@ class TestTwoNumSum(unittest.TestCase):
         """
         Set up the test environment before each test.
         
-        Initializes the input array and the target sum for the test case.
+        Initializes the input `numbers` and the `target_sum` for the test case.
         """
         self.numbers = None
         self.target_sum = None

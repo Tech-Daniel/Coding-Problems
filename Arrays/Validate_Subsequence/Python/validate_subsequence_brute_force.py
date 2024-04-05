@@ -15,7 +15,7 @@ def validate_subsequence(numbers, sequence):
 			sequence_check += 1
 			continue
 		else:
-			numbers_check
+			numbers_check += 1
 	
 	print(f"The subsequence is {subset_remainder == 0}!")
 	print("You got the answer!")
