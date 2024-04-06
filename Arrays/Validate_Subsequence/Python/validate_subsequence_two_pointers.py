@@ -9,6 +9,6 @@ def validate_subsequence_two_pointers(numbers, sequence):
 	print(f"The answer is {seq_idx == len(sequence)}")
 	return seq_idx == len(sequence)
 
-numbers = [5, 1, 22, 25, 6, -1, 8, 10]
-sequence = [1, 6, -1, 10]
-validate_subsequence_two_pointers(numbers, sequence)
+# numbers = [5, 1, 22, 25, 6, -1, 8, 10]
+# sequence = [1, 6, -1, 10]
+# validate_subsequence_two_pointers(numbers, sequence)

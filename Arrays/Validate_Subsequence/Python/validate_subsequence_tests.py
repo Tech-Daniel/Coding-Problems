@@ -1,6 +1,6 @@
 import unittest
-import validate_subsequence_brute_force
-import validate_subsequence_two_pointers
+from validate_subsequence_brute_force import validate_subsequence_brute_force
+from validate_subsequence_two_pointers import validate_subsequence_two_pointers
 import logging
 
 # Configure logging
@@ -14,7 +14,24 @@ class Test_Validate_Subsequence(unittest.TestCase):
 		"""
 		self.numbers = None
 		self.sequence = None
+		self.expected = None
+		self.actual = None
 		self.test_passed = False
+
+	def test_with_negative_and_positive_integer_sequence(self):
+		"""
+		Test the validate_subsequence function with Negative & Positive Integers
+		"""
+		self.numbers = [5, 1, 22, 25, 6, -1, 8, 10]
+		self.sequence = [1, 6, -1, 10]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = True
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return True!")
+				self.test_passed = True
 
 	def tearDown(self):
 		"""

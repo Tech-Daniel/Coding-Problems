@@ -1,4 +1,4 @@
-def validate_subsequence(numbers, sequence):
+def validate_subsequence_brute_force(numbers, sequence):
 	subset_remainder = len(numbers)
 	numbers_check = 0
 	sequence_check = 0
@@ -22,7 +22,7 @@ def validate_subsequence(numbers, sequence):
 	return subset_remainder == 0
 
 
-numbers = [5, 1, 22, 25, 6, -1, 8, 10]
-sequence = [1, 6, -1, 10]
-validate_subsequence(numbers, sequence)
+# numbers = [5, 1, 22, 25, 6, -1, 8, 10]
+# sequence = [1, 6, -1, 10]
+# validate_subsequence(numbers, sequence)
 
