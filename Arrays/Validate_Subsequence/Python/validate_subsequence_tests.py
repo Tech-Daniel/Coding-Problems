@@ -33,6 +33,37 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
 
+	def test_with_same_length_in_numbers_and_sequence(self):
+		"""
+		Test the validate_subsequence function with same length of `numbers` and `sequence`
+		"""
+		self.numbers = [1, 6, -1, 10]
+		self.sequence = [1, 6, -1, 10]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = True
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return True!")
+				self.test_passed = True
+
+	def test_with_subsequence_at_the_start_and_end(self):
+		"""
+		Test the validate_subsequence function with `sequence` value at the Start and the End of `numbers`
+		"""
+		self.numbers = [1, 22, 25, 6, -1, 8, 10]
+		self.sequence = [1, 10]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = True
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return True!")
+				self.test_passed = True
+
+
 	def tearDown(self):
 		"""
 		Logs a message indicating whether the test passed or failed, including the test method name.
