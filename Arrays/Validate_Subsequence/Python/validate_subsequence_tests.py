@@ -63,9 +63,9 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
 
-	def test_with_duplicated_subsequence(self):
+	def test_with_duplicated_subsequence_in_numbers(self):
 		"""
-		Test the validate_subsequence function with `sequence` value at the Start and the End of `numbers`
+		Test the validate_subsequence function with Duplicated integers in `numbers`
 		"""
 		self.numbers = [1, 6, 1, 10, 6, 10]
 		self.sequence = [1, 6, 10]
@@ -77,6 +77,22 @@ class Test_Validate_Subsequence(unittest.TestCase):
 
 				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
+
+	def test_with_duplicated_subsequence_in_sequence(self):
+		"""
+		Test the validate_subsequence function with Duplicated integers in `sequence`
+		"""
+		self.numbers = [1, 6, -1, 10, 1, 6, 10]
+		self.sequence = [1, 6, 10, 1, 6, 10]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = True
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return True!")
+				self.test_passed = True
+
 
 
 	def tearDown(self):
