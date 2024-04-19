@@ -126,6 +126,21 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
 
+	def test_with_ascending_order_test(self):
+		"""
+		Test the validate_subsequence function with Ascending orders integer
+		"""
+		self.numbers = [-2, 0, 1, 3, 4, 7]
+		self.sequence = [0, 3, 7]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = True
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return True!")
+				self.test_passed = True
+
 
 	""" EDGE CASES TEST """
 	def test_with_repetitive_value_of_one_integers(self):
