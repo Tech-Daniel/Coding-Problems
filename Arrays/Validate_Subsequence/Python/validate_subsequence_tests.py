@@ -156,7 +156,7 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
 
-	def test_with_incorrect_order_test(self):
+	def test_false_with_incorrect_order(self):
 		"""
 		Test the validate_subsequence function with INCORRECT orders integer; return False
 		"""
@@ -168,7 +168,22 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.expected = False
 				self.actual = validate_subsequence_func(self.numbers, self.sequence)
 
-				self.assertEqual(self.actual, self.expected, "Result should return True!")
+				self.assertEqual(self.actual, self.expected, "Result should return False!")
+				self.test_passed = True
+
+	def test_false_without_existing_number(self):
+		"""
+		Test the validate_subsequence function without an existing integer; return False
+		"""
+		self.numbers = [5, 1, 6, -1, 9, 11]
+		self.sequence = [1, 6, -1, 10]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = False
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return False!")
 				self.test_passed = True
 
 
