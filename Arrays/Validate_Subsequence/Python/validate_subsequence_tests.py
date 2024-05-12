@@ -203,9 +203,24 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
 
+	def test_false_with_empty_numbers(self):
+		"""
+		Test the validate_subsequence function without an existing integer in `numbers`; return False
+		"""
+		self.numbers = []
+		self.sequence = [1, 0]
+		for validate_subsequence_func in [	validate_subsequence_brute_force,
+											validate_subsequence_two_pointers]:
+			with self.subTest(validate_subsequence_func=validate_subsequence_func):
+				self.expected = False
+				self.actual = validate_subsequence_func(self.numbers, self.sequence)
+
+				self.assertEqual(self.actual, self.expected, "Result should return False!")
+				self.test_passed = True
+	
 	def test_false_with_empty_sequence(self):
 		"""
-		Test the validate_subsequence function without an existing integer; return False
+		Test the validate_subsequence function without an existing integer in `sequence`; return True
 		"""
 		self.numbers = [1, 11]
 		self.sequence = []
@@ -215,7 +230,7 @@ class Test_Validate_Subsequence(unittest.TestCase):
 				self.expected = True
 				self.actual = validate_subsequence_func(self.numbers, self.sequence)
 
-				self.assertEqual(self.actual, self.expected, "Result should return False!")
+				self.assertEqual(self.actual, self.expected, "Result should return True!")
 				self.test_passed = True
 
 
